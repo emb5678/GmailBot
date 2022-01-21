@@ -15,9 +15,6 @@ var msg = draft.send();
 //Get the users draft id
 var draftById = GmailApp.getDraft(draftId);
 
-//Log the draft message, subject and it is equal to the draft message
-Logger.log(draft.getMessage().getSubject() == draftById.getMessage().getSubject());
-
 //The function that makes the HTML useable without a error
 function doGet() {
   return HtmlService.createHtmlOutputFromFile("sent");
