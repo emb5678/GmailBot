@@ -6,9 +6,6 @@ var userDraft = GmailApp.GetDrafts;
 //Get the first message 
 var draft = GmailApp.GetDrafts()[0];
 
-//Log the date
-Logger.Log(msg.getDate());
-
 //Get the first draft's id
 var draftId = draft.getId();
 
