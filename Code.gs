@@ -50,7 +50,7 @@ function threads () {
 //Function that helps the userDraft variable 
 function drafts() {
   for (var i = 0; i < drafts.length; i++) {
-     Logger.log(drafts[i].getId());
+   Logger.log(drafts[i].getId());
   }
 }
 
@@ -67,3 +67,43 @@ function draftById() {
 }
 
 //haha nice
+
+//Variable forScope help code
+ function getInboxUnreadCount () {
+    Logger.log("Messages unread in inbox: " + GmailApp.getInboxUnreadCount());
+ }
+function createDraft () {
+
+  var forScope = GmailApp.getInboxUnreadCount();
+
+  var raw = 'Subject: testing Draft\n' + 
+      //'To: test@test.com\n' +
+      'Content-Type: multipart/alternative; boundary=1234567890123456789012345678\n' +
+      'testing Draft msg\n' + 
+      '--1234567890123456789012345678--\n';
+
+   var draftBody = Utilities.base64Decode(raw);
+
+   var params = {method:"post",
+                contentType: "application/json",
+                headers: {"Authorization": "Bearer " + ScriptApp.getOAuthToken()},
+                muteHttpExceptions:true,
+                payload:JSON.stringify({
+                  "message": {
+                    "raw": draftBody
+                  }
+                })
+               };
+            var resp = UrlFetchApp.fetch("https://www.googleapis.com/gmail/v1/users/me/drafts", params);
+  Logger.log(resp.getContentText());      
+  /*
+   * sample resp: {
+   *   "id": "r3322255254535847929",
+   *   "message": {
+   *     "id": "146d6ec68eb36de8",
+   *     "threadId": "146d6ec68eb36de8",
+   *     "labelIds": [ "DRAFT" ]
+   *   }
+   * }
+   */
+}
