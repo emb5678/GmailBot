@@ -9,14 +9,12 @@ var draft = GmailApp.getDrafts()[0];
 //Get the ID of the first draft 
 var draftId = draft.getId();
 
+
 //Gets the users draft id
 var draftById = GmailApp.getDraft(draftId);
 
 //Get the inbox threads 
 var thread = GmailApp.getInboxThreads();
-
-//Get the message
-var message = thread.getMessage();
 
 //Get the first 50 subjects 
 var firstThread = GmailApp.getInboxThreads(0, 50);
