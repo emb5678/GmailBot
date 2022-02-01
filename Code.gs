@@ -9,12 +9,12 @@ var draft = GmailApp.getDrafts()[0];
 //Get the ID of the first draft 
 var draftId = draft.getId();
 
-
 //Gets the users draft id
 var draftById = GmailApp.getDraft(draftId);
 
 //Get the inbox threads 
 var thread = GmailApp.getInboxThreads();
+
 
 //Get the first 50 subjects 
 var firstThread = GmailApp.getInboxThreads(0, 50);
@@ -22,12 +22,13 @@ var firstThread = GmailApp.getInboxThreads(0, 50);
 //What happens if the bot sends the draft
 function send (){
  if (userDraft == true) {
-      send(draft);
+   send(draft);
   } 
+  
   //Log the date when the bot sent the draft 
-   Logger.log(msg.getDate());
+  Logger.log(msg.getDate());
   //I have no clue what this does send help
-     Logger.log(draft.getMessage().getSubject() == draftById.getMessage().getSubject());
+ Logger.log(draft.getMessage().getSubject() == draftById.getMessage().getSubject());
 }
 
 //Send it 
@@ -41,7 +42,7 @@ function subject() {
 //Code that helps the thread variable
 function threads () {
     for (var i = 0; i < threads.length; i++) {
-       Logger.log(threads[i].getFirstMessageSubject());
+    Logger.log(threads[i].getFirstMessageSubject());
     } 
 }
 
@@ -64,4 +65,5 @@ function draftById() {
   }
 }
 
+//this is a booster line 
 //haha nice
