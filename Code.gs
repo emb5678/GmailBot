@@ -27,8 +27,8 @@ var thread = GmailApp.getInboxThreads();
 
 //Get the first 50 subjects 
 var firstThread = GmailApp.getInboxThreads(0, 50);
-
-GmailApp.createDraft("ethanbaughn935@gmail.com", "current time", "The time is: " + now.toString());
+//WHERE YOU SEMD IT TO
+GmailApp.createDraft("", "current time", "The time is: " + now.toString());
 
 //What happens if the bot sends the draft
 function send (){
