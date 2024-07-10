@@ -22,13 +22,15 @@ var draftById = GmailApp.getDraft(draftId)
 
   //I have no clue what this does send help
  Logger.log(draft.getMessage().getSubject() == draftById.getMessage().getSubject());
+
 //Get the inbox threads 
 var thread = GmailApp.getInboxThreads();
 
 //Get the first 50 subjects 
 var firstThread = GmailApp.getInboxThreads(0, 50);
 
-GmailApp.createDraft("ethanbaughn935@gmail.com", "current time", "The time is: " + now.toString());
+//change target email here with the email you want to send the email to
+GmailApp.createDraft("target email here", "current time", "The time is: " + now.toString());
 
 //What happens if the bot sends the draft
 function send (){
